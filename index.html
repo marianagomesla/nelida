@@ -227,7 +227,7 @@ footer a{color:#6a4a28;text-decoration:none;}
         action="https://forminit.com/f/qpft72hxxk2" method="POST"
         enctype="multipart/form-data">
 
-    <input type="hidden" name="produto_escolhido" id="hProduto" value="">
+    <input type="hidden" name="fi-text-produto" id="hProduto" value="">
 
     <!-- DADOS -->
     <div class="form-block">
@@ -235,31 +235,31 @@ footer a{color:#6a4a28;text-decoration:none;}
 
       <div class="field" id="f-nome">
         <label for="nome">Nome completo <span class="req">*</span></label>
-        <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name">
+        <input type="text" id="nome" name="fi-sender-fullName" placeholder="Seu nome" autocomplete="name">
         <div class="err">Informe seu nome.</div>
       </div>
 
       <div class="field" id="f-email">
         <label for="email">E-mail <span class="req">*</span></label>
-        <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email">
+        <input type="email" id="email" name="fi-sender-email" placeholder="seu@email.com" autocomplete="email">
         <div class="err">Informe um e-mail válido.</div>
       </div>
 
       <div class="field" id="f-wpp">
         <label for="wpp">WhatsApp <span class="req">*</span> <span class="hint">com DDD</span></label>
-        <input type="tel" id="wpp" name="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel">
+        <input type="tel" id="wpp" name="fi-text-whatsapp" placeholder="(11) 99999-9999" autocomplete="tel">
         <div class="err">Informe seu WhatsApp.</div>
       </div>
 
       <div class="field" id="f-nasc">
         <label for="nasc">Data de nascimento <span class="req">*</span></label>
-        <input type="date" id="nasc" name="data_nascimento">
+        <input type="date" id="nasc" name="fi-date-nascimento">
         <div class="err">Informe sua data de nascimento.</div>
       </div>
 
       <div class="field">
         <label for="rel">Situação afetiva atual</label>
-        <select id="rel" name="situacao_afetiva">
+        <select id="rel" name="fi-select-situacao">
           <option value="" disabled selected>Selecione</option>
           <option value="relacionamento">Em um relacionamento</option>
           <option value="solteira">Solteira(o)</option>
@@ -276,39 +276,39 @@ footer a{color:#6a4a28;text-decoration:none;}
       <div class="field" id="f-areas">
         <label>Áreas com mais interesse <span class="req">*</span> <span class="hint">até 3</span></label>
         <div class="checks" id="areasGroup">
-          <div class="chk" onclick="togChk(this,'a1')"><input type="checkbox" id="a1" name="areas" value="Amor e relacionamentos"><div class="chk-box"></div>Amor e relacionamentos</div>
-          <div class="chk" onclick="togChk(this,'a2')"><input type="checkbox" id="a2" name="areas" value="Trabalho e carreira"><div class="chk-box"></div>Trabalho e carreira</div>
-          <div class="chk" onclick="togChk(this,'a3')"><input type="checkbox" id="a3" name="areas" value="Dinheiro e finanças"><div class="chk-box"></div>Dinheiro e finanças</div>
-          <div class="chk" onclick="togChk(this,'a4')"><input type="checkbox" id="a4" name="areas" value="Família"><div class="chk-box"></div>Família</div>
-          <div class="chk" onclick="togChk(this,'a5')"><input type="checkbox" id="a5" name="areas" value="Saúde e corpo"><div class="chk-box"></div>Saúde e corpo</div>
-          <div class="chk" onclick="togChk(this,'a6')"><input type="checkbox" id="a6" name="areas" value="Espiritualidade"><div class="chk-box"></div>Espiritualidade</div>
-          <div class="chk" onclick="togChk(this,'a7')"><input type="checkbox" id="a7" name="areas" value="Negócio próprio"><div class="chk-box"></div>Negócio próprio</div>
-          <div class="chk" onclick="togChk(this,'a8')"><input type="checkbox" id="a8" name="areas" value="Propósito e direção"><div class="chk-box"></div>Propósito e direção</div>
+          <div class="chk" onclick="togChk(this,'a1')"><input type="checkbox" id="a1" name="fi-checkbox-areas" value="Amor e relacionamentos"><div class="chk-box"></div>Amor e relacionamentos</div>
+          <div class="chk" onclick="togChk(this,'a2')"><input type="checkbox" id="a2" name="fi-checkbox-areas" value="Trabalho e carreira"><div class="chk-box"></div>Trabalho e carreira</div>
+          <div class="chk" onclick="togChk(this,'a3')"><input type="checkbox" id="a3" name="fi-checkbox-areas" value="Dinheiro e finanças"><div class="chk-box"></div>Dinheiro e finanças</div>
+          <div class="chk" onclick="togChk(this,'a4')"><input type="checkbox" id="a4" name="fi-checkbox-areas" value="Família"><div class="chk-box"></div>Família</div>
+          <div class="chk" onclick="togChk(this,'a5')"><input type="checkbox" id="a5" name="fi-checkbox-areas" value="Saúde e corpo"><div class="chk-box"></div>Saúde e corpo</div>
+          <div class="chk" onclick="togChk(this,'a6')"><input type="checkbox" id="a6" name="fi-checkbox-areas" value="Espiritualidade"><div class="chk-box"></div>Espiritualidade</div>
+          <div class="chk" onclick="togChk(this,'a7')"><input type="checkbox" id="a7" name="fi-checkbox-areas" value="Negócio próprio"><div class="chk-box"></div>Negócio próprio</div>
+          <div class="chk" onclick="togChk(this,'a8')"><input type="checkbox" id="a8" name="fi-checkbox-areas" value="Propósito e direção"><div class="chk-box"></div>Propósito e direção</div>
         </div>
         <div class="err err-show" id="areas-err" style="display:none;">Selecione ao menos uma área.</div>
       </div>
 
       <div class="field" id="f-pergunta">
         <label for="pergunta">Sua pergunta central <span class="req">*</span></label>
-        <textarea id="pergunta" name="pergunta_central" placeholder="A pergunta que você carrega agora. Pode ser direta ou aberta." rows="4"></textarea>
+        <textarea id="pergunta" name="fi-text-pergunta" placeholder="A pergunta que você carrega agora. Pode ser direta ou aberta." rows="4"></textarea>
         <div class="err">Escreva sua pergunta central.</div>
       </div>
 
       <div class="field">
         <label>O que você espera da leitura? <span class="hint">pode marcar mais de um</span></label>
         <div class="checks">
-          <div class="chk" onclick="togChk(this,'e1')"><input type="checkbox" id="e1" name="expectativas" value="Clareza para uma decisão"><div class="chk-box"></div>Clareza para uma decisão</div>
-          <div class="chk" onclick="togChk(this,'e2')"><input type="checkbox" id="e2" name="expectativas" value="Entender o que soltar"><div class="chk-box"></div>Entender o que soltar</div>
-          <div class="chk" onclick="togChk(this,'e3')"><input type="checkbox" id="e3" name="expectativas" value="Direção para 2027"><div class="chk-box"></div>Direção para 2027</div>
-          <div class="chk" onclick="togChk(this,'e4')"><input type="checkbox" id="e4" name="expectativas" value="Orientação espiritual"><div class="chk-box"></div>Orientação espiritual</div>
-          <div class="chk" onclick="togChk(this,'e5')"><input type="checkbox" id="e5" name="expectativas" value="Desbloquear prosperidade"><div class="chk-box"></div>Desbloquear prosperidade</div>
-          <div class="chk" onclick="togChk(this,'e6')"><input type="checkbox" id="e6" name="expectativas" value="Mapa do que vem"><div class="chk-box"></div>Mapa do que vem</div>
+          <div class="chk" onclick="togChk(this,'e1')"><input type="checkbox" id="e1" name="fi-checkbox-expectativas" value="Clareza para uma decisão"><div class="chk-box"></div>Clareza para uma decisão</div>
+          <div class="chk" onclick="togChk(this,'e2')"><input type="checkbox" id="e2" name="fi-checkbox-expectativas" value="Entender o que soltar"><div class="chk-box"></div>Entender o que soltar</div>
+          <div class="chk" onclick="togChk(this,'e3')"><input type="checkbox" id="e3" name="fi-checkbox-expectativas" value="Direção para 2027"><div class="chk-box"></div>Direção para 2027</div>
+          <div class="chk" onclick="togChk(this,'e4')"><input type="checkbox" id="e4" name="fi-checkbox-expectativas" value="Orientação espiritual"><div class="chk-box"></div>Orientação espiritual</div>
+          <div class="chk" onclick="togChk(this,'e5')"><input type="checkbox" id="e5" name="fi-checkbox-expectativas" value="Desbloquear prosperidade"><div class="chk-box"></div>Desbloquear prosperidade</div>
+          <div class="chk" onclick="togChk(this,'e6')"><input type="checkbox" id="e6" name="fi-checkbox-expectativas" value="Mapa do que vem"><div class="chk-box"></div>Mapa do que vem</div>
         </div>
       </div>
 
       <div class="field">
         <label for="contexto">Contexto adicional <span class="hint">opcional</span></label>
-        <textarea id="contexto" name="contexto" rows="3" placeholder="O que está em movimento na sua vida agora. Qualquer coisa que ajude a afinar a leitura."></textarea>
+        <textarea id="contexto" name="fi-text-contexto" rows="3" placeholder="O que está em movimento na sua vida agora. Qualquer coisa que ajude a afinar a leitura."></textarea>
       </div>
     </div>
 
@@ -325,7 +325,7 @@ footer a{color:#6a4a28;text-decoration:none;}
 
       <div class="field" id="f-comp">
         <label>Comprovante de pagamento <span class="req">*</span></label>
-        <input type="file" class="upload-hidden" id="comp" name="attachment" accept="image/*,.pdf" onchange="arquivoSel(this)">
+        <input type="file" class="upload-hidden" id="comp" name="fi-file-comprovante" accept="image/*,.pdf" onchange="arquivoSel(this)">
         <label class="upload-wrap" for="comp" id="uploadBox">
           <div class="upload">
             <div class="upload-ico">↑</div>
@@ -339,7 +339,7 @@ footer a{color:#6a4a28;text-decoration:none;}
 
       <div class="field" id="f-valor">
         <label for="valor">Valor pago <span class="req">*</span></label>
-        <select id="valor" name="valor_pago" required>
+        <select id="valor" name="fi-select-valor" required>
           <option value="" disabled selected>Selecione</option>
           <option value="R$ 197 - O Caminho do Carro">R$ 197 · O Caminho do Carro</option>
           <option value="R$ 597 - A Jornada d'O Mundo">R$ 597 · A Jornada d'O Mundo</option>
@@ -527,17 +527,6 @@ function enviar(){
   var btn=document.getElementById('btnEnv');
   btn.disabled=true;
   btn.textContent='Enviando…';
-
-  // coletar áreas marcadas num campo só
-  var areas=[];
-  document.querySelectorAll('#areasGroup input:checked').forEach(function(c){areas.push(c.value);});
-
-  // adicionar áreas como campo hidden temporário
-  var hidAreas=document.createElement('input');
-  hidAreas.type='hidden';
-  hidAreas.name='areas_de_interesse';
-  hidAreas.value=areas.join(', ');
-  document.getElementById('f').appendChild(hidAreas);
 
   // submeter formulário nativamente (suporta arquivo + redirect configurado no Forminit)
   document.getElementById('f').submit();
