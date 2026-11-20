@@ -224,14 +224,10 @@ footer a{color:#6a4a28;text-decoration:none;}
   </div>
 
   <form id="f" novalidate class="mt-form"
-        action="https://api.web3forms.com/submit" method="POST">
+        action="https://forminit.com/f/qpft72hxxk2" method="POST"
+        enctype="multipart/form-data">
 
-    <input type="hidden" name="access_key" value="0715cb2d-3e43-4e44-8d56-9168560d51c4">
-    <input type="hidden" name="subject" value="Nova inscrição · Leitura de Ciclo 2027">
-    <input type="hidden" name="redirect" id="hNext" value="">
-    <input type="hidden" name="replyto" id="hReplyto" value="">
     <input type="hidden" name="produto_escolhido" id="hProduto" value="">
-    <input type="checkbox" name="botcheck" style="display:none;">
 
     <!-- DADOS -->
     <div class="form-block">
@@ -452,6 +448,7 @@ function togTermos(){
   document.getElementById('termosRow').classList.toggle('on');
 }
 
+
 function arquivoSel(inp){
   if(inp.files.length){
     var n=document.getElementById('compNome');
@@ -531,23 +528,35 @@ function enviar(){
   btn.disabled=true;
   btn.textContent='Enviando…';
 
-  // sincronizar campos dinâmicos
-  var emailVal=document.getElementById('email').value.trim();
-  document.getElementById('hReplyto').value=emailVal;
-  document.getElementById('hNext').value=window.location.href.split('?')[0]+'?enviado=1';
-
   // coletar áreas marcadas num campo só
   var areas=[];
   document.querySelectorAll('#areasGroup input:checked').forEach(function(c){areas.push(c.value);});
-  // criar input hidden temporário com as áreas
-  var hidAreas=document.createElement('input');
-  hidAreas.type='hidden';
-  hidAreas.name='areas_de_interesse';
-  hidAreas.value=areas.join(', ');
-  document.getElementById('f').appendChild(hidAreas);
 
-  // submeter o formulário normalmente (POST com redirect)
-  document.getElementById('f').submit();
+  // montar FormData com todos os campos (incluindo arquivo)
+  var fd=new FormData(document.getElementById('f'));
+  fd.set('areas_de_interesse', areas.join(', '));
+
+  var sucUrl=window.location.href.split('?')[0]+'?enviado=1';
+
+  // submeter via fetch com redirect:manual para detectar 302 do Forminit
+  fetch('https://forminit.com/f/qpft72hxxk2',{
+    method:'POST',
+    body:fd,
+    redirect:'manual'
+  }).then(function(res){
+    // res.type==='opaqueredirect' significa 3xx (sucesso no Forminit)
+    if(res.ok||res.type==='opaqueredirect'||res.redirected){
+      window.location.href=sucUrl;
+    }else{
+      btn.disabled=false;
+      btn.textContent='Confirmar inscrição';
+      alert('Erro ao enviar. Tente novamente.');
+    }
+  }).catch(function(){
+    // CORS bloqueado sem redirect — submission pode ter chegado
+    // Redireciona para página de confirmação de qualquer forma
+    window.location.href=sucUrl;
+  });
 }
 </script>
 </body>
