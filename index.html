@@ -377,8 +377,8 @@ footer a{color:#6a4a28;text-decoration:none;}
   <div class="success" id="sucesso">
     <div class="suc-icon">✦</div>
     <div class="suc-title">Inscrição recebida.</div>
-    <p class="suc-p">A Nélida vai entrar em contato pelo WhatsApp para confirmar os próximos passos da sua Leitura de Ciclo · 2027.</p>
-    <div class="suc-box"><strong>O que acontece agora:</strong><br>Carregue a sua pergunta com intenção até a entrega chegar. A leitura começa no momento em que você a pede.</div>
+    <p class="suc-p">A Nélida vai entrar em contato pelo WhatsApp em até 24h para confirmar os próximos passos da sua Leitura de Ciclo · 2027.</p>
+    <div class="suc-box"><strong>O que acontece agora:</strong><br><br>Você não precisa fazer mais nada. A leitura já começou no momento em que você a pediu.<br><br>Nos próximos dias, você vai receber o áudio com a sua leitura — feita com atenção ao seu campo, à sua pergunta e ao momento exato em que você está.<br><br>Enquanto isso, se quiser, carregue sua pergunta com intenção. Deixe ela viva em você.</div>
   </div>
 
 </div>
@@ -391,6 +391,10 @@ if(window.location.search.includes('enviado=1')){
   document.getElementById('f') && (document.getElementById('f').style.display='none');
   document.querySelector('.prod-section') && (document.querySelector('.prod-section').style.display='none');
   document.querySelector('.intro-block') && (document.querySelector('.intro-block').style.display='none');
+  document.querySelector('.cativo-banner') && (document.querySelector('.cativo-banner').style.display='none');
+  document.querySelector('.cativo-divider') && (document.querySelector('.cativo-divider').style.display='none');
+  document.querySelector('.header h1') && (document.querySelector('.header h1').style.display='none');
+  document.querySelector('.header-p') && (document.querySelector('.header-p').style.display='none');
   document.getElementById('sucesso') && document.getElementById('sucesso').classList.add('on');
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -550,3 +554,4 @@ function enviar(){
 </script>
 </body>
 </html>
+TEST_PASTE_WORKS
