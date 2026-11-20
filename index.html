@@ -532,31 +532,15 @@ function enviar(){
   var areas=[];
   document.querySelectorAll('#areasGroup input:checked').forEach(function(c){areas.push(c.value);});
 
-  // montar FormData com todos os campos (incluindo arquivo)
-  var fd=new FormData(document.getElementById('f'));
-  fd.set('areas_de_interesse', areas.join(', '));
+  // adicionar áreas como campo hidden temporário
+  var hidAreas=document.createElement('input');
+  hidAreas.type='hidden';
+  hidAreas.name='areas_de_interesse';
+  hidAreas.value=areas.join(', ');
+  document.getElementById('f').appendChild(hidAreas);
 
-  var sucUrl=window.location.href.split('?')[0]+'?enviado=1';
-
-  // submeter via fetch com redirect:manual para detectar 302 do Forminit
-  fetch('https://forminit.com/f/qpft72hxxk2',{
-    method:'POST',
-    body:fd,
-    redirect:'manual'
-  }).then(function(res){
-    // res.type==='opaqueredirect' significa 3xx (sucesso no Forminit)
-    if(res.ok||res.type==='opaqueredirect'||res.redirected){
-      window.location.href=sucUrl;
-    }else{
-      btn.disabled=false;
-      btn.textContent='Confirmar inscrição';
-      alert('Erro ao enviar. Tente novamente.');
-    }
-  }).catch(function(){
-    // CORS bloqueado sem redirect — submission pode ter chegado
-    // Redireciona para página de confirmação de qualquer forma
-    window.location.href=sucUrl;
-  });
+  // submeter formulário nativamente (suporta arquivo + redirect configurado no Forminit)
+  document.getElementById('f').submit();
 }
 </script>
 </body>
